@@ -2,9 +2,10 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   name: {
     type: String,
-    requiered: true,
+    required: true,
   },
   email: {
     type: String,
@@ -18,7 +19,6 @@ const userSchema = new mongoose.Schema({
   verifytoken: {
     type: String,
   },
-  _id: mongoose.Schema.Types.ObjectId,
 });
 
 userSchema.pre("save", async function (next) {
